@@ -137,6 +137,9 @@ app.get('/admin/logs', auth('admin'), async (req, res) => {
   const r = await pool.query('SELECT * FROM log_actividades ORDER BY creado_en DESC LIMIT 100');
   res.json(r.rows);
 });
+app.get("/", (req, res) => {
+  res.send("✅ API funcionando correctamente en Render 🚀");
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server running on port', PORT));
